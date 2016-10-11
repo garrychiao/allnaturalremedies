@@ -3,6 +3,8 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Auth;
+use User;
 
 class CheckPermission
 {
@@ -15,6 +17,18 @@ class CheckPermission
      */
     public function handle($request, Closure $next)
     {
-        return $next($request);
+        if(Auth::check()){
+          $admin = Auth::user()->admin;
+          $employee = Auth::user()->employee;
+
+          if($admin||$employee){
+            return $next($request);
+          }else{
+            return redirect('errors/permission');
+          }
+        }else{
+          return $next($request);
+        }
+
     }
 }

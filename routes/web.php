@@ -12,9 +12,15 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
+
+Route::get('/errors/{type}', 'ErrorController@index');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');
+Route::group(['middleware' => ['web','permission']], function () {
+
+  Route::get('/home', 'HomeController@index');
+
+});
