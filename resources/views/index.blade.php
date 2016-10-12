@@ -216,18 +216,24 @@
               </div>
             </div>
             <div class="col-xs-12">
-              <li><h4 id="content">​Nutrition & Herbal</h4></li>
-              <div class="col-xs-4">
-                <a href="#" class="thumbnail">
-                  <img src="img/img_herbal.jpg" alt="...">
-                </a>
-              </div>
-              <div class="col-xs-8">
-                <p>
-                  We are the retailers of New Zealand mede nutrition powders and herbal suppliments.  Herbal suppliments are without side effects- all trusted brands at a very low price.
-                </p>
-              </div>
+              <h4><----Slide to View----></h4>
             </div>
+          </div>
+        </div>
+      </div>
+      <div class="slide visible-xs">
+        <!--a part ends here-->
+        <div class="col-xs-12">
+          <li><h4 id="content">​Nutrition & Herbal</h4></li>
+          <div class="col-xs-4">
+            <a href="#" class="thumbnail">
+              <img src="img/img_herbal.jpg" alt="...">
+            </a>
+          </div>
+          <div class="col-xs-8">
+            <p>
+              We are the retailers of New Zealand mede nutrition powders and herbal suppliments.  Herbal suppliments are without side effects- all trusted brands at a very low price.
+            </p>
           </div>
         </div>
       </div>
@@ -246,6 +252,9 @@
             </p>
           </div>
         </div>
+      </div>
+
+      <div class="slide visible-xs">
         <div class="col-xs-12">
           <li><h3 id="content">​Reflexology</h3></li>
           <div class="col-xs-4">
