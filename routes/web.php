@@ -11,9 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+
+Route::get('/', 'HomeController@index');
 
 Route::get('/errors/{type}', 'ErrorController@index');
 
@@ -21,6 +20,14 @@ Auth::routes();
 
 Route::group(['middleware' => ['web','permission']], function () {
 
-  Route::get('/home', 'HomeController@index');
+  Route::get('/home', 'HomeController@home');
+
+  Route::post('/user/permission', 'HomeController@permissionUser');
+
+  Route::post('/user/delete', 'HomeController@deleteUser');
+
+  Route::post('/user/update', 'HomeController@updateUser');
+
+  Route::post('/booking', 'HomeController@booking');
 
 });

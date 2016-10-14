@@ -70,6 +70,16 @@ class RegisterController extends Controller
               'password' => bcrypt($data['password']),
               'admin' => true,
               'employee' => true,
+              'display_name'=> $data['name'],
+              'gender' => 'male',
+              'specialized' => null,
+              'mon' => false,
+              'tue' => false,
+              'wed' => false,
+              'thur' => false,
+              'fri' => false,
+              'sat' => false,
+              'sun' => false
           ]);
         }else{
           return User::create([
@@ -78,6 +88,16 @@ class RegisterController extends Controller
               'password' => bcrypt($data['password']),
               'admin' => false,
               'employee' => false,
+              'display_name'=> $data['name'],
+              'gender' => 'male',
+              'specialized' => null,
+              'mon' => false,
+              'tue' => false,
+              'wed' => false,
+              'thur' => false,
+              'fri' => false,
+              'sat' => false,
+              'sun' => false
           ]);
         }
     }

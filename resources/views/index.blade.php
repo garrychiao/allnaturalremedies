@@ -14,6 +14,8 @@
   <link rel="stylesheet" type="text/css" href="css/jquery.fullPage.css" />
   <link rel="stylesheet" href="css/animate.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" rel="stylesheet">
+
   <!--Full Calender-->
   <link rel='stylesheet' href='css/fullcalendar.css' />
 
@@ -59,6 +61,9 @@
 </style>
 </head>
 <body>
+  @if(Session::has('message'))
+  <p class="alert {{ Session::get('alert-class', 'alert-info') }}">{{ Session::get('message') }}</p>
+  @endif
   <div class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -72,16 +77,6 @@
         </a>
       </div>
       <div class="navbar-collapse collapse navbar-inverse-collapse">
-        @if (Auth::guest())
-        <ul class="nav navbar-nav navbar-left">
-          <li><a href="{{ url('/login') }}">Login</a></li>
-          <li><a href="{{ url('/register') }}">Register</a></li>
-        </ul>
-        @else
-        <ul class="nav navbar-nav navbar-left">
-          <li><a href="{{ url('/home') }}">Hello {{Auth::user()->name}} !</a></li>
-        </ul>
-        @endif
         <ul class="nav navbar-nav navbar-right" id="myMenu">
           <li data-menuanchor="home" class="active"><a href="#home">Home</a></li>
           <li data-menuanchor="therapies"><a href="#therapies">Therapies</a></li>
@@ -286,8 +281,31 @@
                 </div>
                 <div id="div_aboutus" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="aboutus">
                   <div class="panel-body">
-                    <div class="col-sm-12">
-                      Therapists infos here.
+                    <div class="col-sm-12" align="left">
+                      @forelse($user as $u)
+                      <div class="col-sm-6 col-xs-6">
+                        <h3 id="content">
+                          @if($u->gender == "Male")
+                          <i class="fa fa-male" aria-hidden="true"></i>
+                          @elseif($u->gender == "Female")
+                          <i class="fa fa-female" aria-hidden="true"></i>
+                          @endif
+                          {{$u->display_name}}
+                        </h3>
+                        <h5 id="content">Specialized : {{ $u->specialized }}</h5>
+                        <h5 id="content">
+                          @if($u->mon) Mon. @endif
+                          @if($u->tue) Tue. @endif
+                          @if($u->wed) Wed. @endif
+                          @if($u->thur) Thur. @endif
+                          @if($u->fri) Fri. @endif
+                          @if($u->sat) Sat. @endif
+                          @if($u->sun) Sun. @endif
+                        </h5>
+                      </div>
+                      @empty
+                      Waiting !
+                      @endforelse
                     </div>
                   </div>
                 </div>
@@ -342,67 +360,144 @@
           </div>
           <div class="visible-xs slide">
             <h2 id="title">Book Your Appointments</h2>
-            <form class="" action="index.html" method="post">
+            <form action="{{ url('/booking') }}" method="post">
+              {!! csrf_field() !!}
               <div class="col-xs-6">
                 <label for="">Name :</label>
                 <input type="text" class="form-control" name="name" value="" required>
                 <label for="">Phone Number :</label>
-                <input type="text" class="form-control" name="name" value="" required>
+                <input type="text" class="form-control" name="phone" value="" required>
                 <label for="">Email :</label>
-                <input type="text" class="form-control" name="name" value="">
+                <input type="text" class="form-control" name="email" value="">
               </div>
               <div class="col-xs-6">
                 <label for="">Therapist :</label>
-                <select class="form-control" name="" required>
-                  <option>first</option>
+                <select class="form-control" name="therapist_id" id="therapist_id_s" onchange="change_period_s();" required>
+                  @foreach($user as $u)
+                  <option value="{{ $u->id }}">{{ $u->display_name }}</option>
+                  @endforeach
                 </select>
                 <label for="">Date :</label>
-                <input type="date" class="form-control" name="name" value="">
+                <input type="date" class="form-control" name="booking_date" id="booking_date_s" onchange="change_period_s();" required>
                 <label for="">Time :</label>
-                <select class="form-control" name="" required>
-                  <option>first</option>
+                <select class="form-control" name="booking_period" id="booking_period_s" onchange="change_period_s();" required>
+                  <option value="09:00:00">09:00~10:00</option>
+                  <option value="10:00:00">10:00~11:00</option>
+                  <option value="11:00:00">11:00~12:00</option>
+                  <option value="12:00:00">12:00~13:00</option>
+                  <option value="13:00:00">13:00~14:00</option>
+                  <option value="14:00:00">14:00~15:00</option>
+                  <option value="15:00:00">15:00~16:00</option>
+                  <option value="16:00:00">16:00~17:00</option>
+                  <option value="17:00:00">17:00~18:00</option>
+                  <option value="18:00:00">18:00~19:00</option>
+                  <option value="19:00:00">19:00~20:00</option>
+                  <option value="20:00:00">20:00~21:00</option>
+                  <option value="21:00:00">21:00~22:00</option>
                 </select>
               </div>
               <div class="col-xs-12">
                 <label for="">Main Symptoms :</label>
-                <textarea name="name" class="form-control" rows="8" cols="40" required></textarea>
-                <input type="submit" class="btn btn-default" value="Submit">
+                <textarea class="form-control" name="symptoms" rows="8" cols="40" required></textarea>
+                <input type="submit" id="submitBtn_s" class="btn btn-default" value="Submit">
               </div>
             </form>
           </div>
           <div class="col-sm-6 hidden-xs">
             <h2 id="title">Book Your Appointments</h2>
-            <form class="" action="index.html" method="post">
+            <form action="{{ url('/booking') }}" method="post">
+              {!! csrf_field() !!}
               <div class="col-sm-6">
                 <label for="">Name :</label>
                 <input type="text" class="form-control" name="name" value="" required>
                 <label for="">Phone Number :</label>
-                <input type="text" class="form-control" name="name" value="" required>
+                <input type="text" class="form-control" name="phone" value="" required>
                 <label for="">Email :</label>
-                <input type="text" class="form-control" name="name" value="">
+                <input type="email" class="form-control" name="email" value="">
               </div>
               <div class="col-sm-6">
                 <label for="">Therapist :</label>
-                <select class="form-control" name="" required>
-                  <option>first</option>
+                <select class="form-control" name="therapist_id" id="therapist_id_m" onchange="change_period_m();" required>
+                  @foreach($user as $u)
+                  <option value="{{ $u->id }}">{{ $u->display_name }}</option>
+                  @endforeach
                 </select>
                 <label for="">Date :</label>
-                <input type="date" class="form-control" name="name" value="">
+                <input type="date" class="form-control" name="booking_date" id="booking_date_m" onchange="change_period_m();" value="" required>
                 <label for="">Time :</label>
-                <select class="form-control" name="" required>
-                  <option>first</option>
+                <select class="form-control" name="booking_period" id="booking_period_m" onchange="change_period_m();" required>
+                  <option value="09:00:00">09:00~10:00</option>
+                  <option value="10:00:00">10:00~11:00</option>
+                  <option value="11:00:00">11:00~12:00</option>
+                  <option value="12:00:00">12:00~13:00</option>
+                  <option value="13:00:00">13:00~14:00</option>
+                  <option value="14:00:00">14:00~15:00</option>
+                  <option value="15:00:00">15:00~16:00</option>
+                  <option value="16:00:00">16:00~17:00</option>
+                  <option value="17:00:00">17:00~18:00</option>
+                  <option value="18:00:00">18:00~19:00</option>
+                  <option value="19:00:00">19:00~20:00</option>
+                  <option value="20:00:00">20:00~21:00</option>
+                  <option value="21:00:00">21:00~22:00</option>
                 </select>
               </div>
               <div class="col-sm-12">
                 <label for="">Main Symptoms :</label>
-                <textarea name="name" class="form-control" rows="8" cols="40" required></textarea>
-                <input type="submit" class="btn btn-default" value="Submit">
+                <textarea class="form-control" name="symptoms" rows="8" cols="40" required></textarea>
+                <input type="submit" id="submitBtn_m" class="btn btn-default" value="Submit">
               </div>
             </form>
           </div>
         </div>
+        <footer class="page-footer">
+          <div class="row">
+            <div class="col-sm-1 col-sm-offset-5 hidden-xs">
+              <div class="container">
+                <div class="col-sm-12">
+                  @if (Auth::guest())
+                  <ul class="nav navbar-nav navbar-left">
+                    <li class="dropup">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Backend <span class="caret"></span></a>
+                      <ul class="dropdown-menu">
+                        <li><a href="{{ url('/login') }}">Login</a></li>
+                        <li><a href="{{ url('/register') }}">Register</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                  @else
+                  <ul class="nav navbar-nav navbar-left">
+                    <li><a href="{{ url('/home') }}">Hello {{Auth::user()->name}} !</a></li>
+                  </ul>
+                  @endif
+                </div>
+                <h6>© Website by Full-Stack-Artisan</h6>
+              </div>
+            </div>
+            <div class="col-xs-12 visible-xs">
+              <div class="container" style="">
+                <div class="col-xs-12">
+                  @if (Auth::guest())
+                  <ul class="nav navbar-nav navbar-left">
+                    <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Backend <span class="caret"></span></a>
+                      <ul class="dropdown-menu">
+                        <li><a href="{{ url('/login') }}">Login</a></li>
+                        <li><a href="{{ url('/register') }}">Register</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                  @else
+                  <ul class="nav navbar-nav">
+                    <li><a href="{{ url('/home') }}">Hello {{Auth::user()->name}} !</a></li>
+                  </ul>
+                  @endif
+                </div>
+                <h6>© Website by Full-Stack-Artisan</h6>
+              </div>
+            </div>
+          </div>
+        </footer>
       </div>
-
     </div>
   </div>
   <!-- Include all compiled plugins (below), or include individual files as needed -->
@@ -410,6 +505,7 @@
   <script src="js/ripples.min.js"></script>
   <script src="js/material.min.js"></script>
   <script type="text/javascript" src="js/jquery.fullPage.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
 
   <script type="text/javascript">
     $.material.init();
@@ -431,6 +527,186 @@
         // put your options and callbacks here
       })
     });
+  </script>
+  <script type="text/javascript">
+  function change_period_s(){
+    var therapist = document.getElementById('therapist_id_s').value;
+    var date = new Date(document.getElementById('booking_date_s').value);
+    var weekday = date.getDay();
+    @foreach($user as $u)
+    if(therapist == {{ $u->id }}){
+      switch (weekday) {
+        case 1:
+          @if($u->mon)
+          document.getElementById("booking_period_s").disabled = false;
+          document.getElementById("submitBtn_s").disabled = false;
+          @else
+          document.getElementById("booking_period_s").disabled = true;
+          document.getElementById("submitBtn_s").disabled = true;
+          @endif
+        break;
+        case 2:
+          @if($u->tue)
+          document.getElementById("booking_period_s").disabled = false;
+          document.getElementById("submitBtn_s").disabled = false;
+          @else
+          document.getElementById("booking_period_s").disabled = true;
+          document.getElementById("submitBtn_s").disabled = true;
+          @endif
+        break;
+        case 3:
+          @if($u->wed)
+          document.getElementById("booking_period_s").disabled = false;
+          document.getElementById("submitBtn_s").disabled = false;
+          @else
+          document.getElementById("booking_period_s").disabled = true;
+          document.getElementById("submitBtn_s").disabled = true;
+          @endif
+        break;
+        case 4:
+          @if($u->thur)
+          document.getElementById("booking_period_s").disabled = false;
+          document.getElementById("submitBtn_s").disabled = false;
+          @else
+          document.getElementById("booking_period_s").disabled = true;
+          document.getElementById("submitBtn_s").disabled = true;
+          @endif
+        break;
+        case 5:
+          @if($u->fri)
+          document.getElementById("booking_period_s").disabled = false;
+          document.getElementById("submitBtn_s").disabled = false;
+          @else
+          document.getElementById("booking_period_s").disabled = true;
+          document.getElementById("submitBtn_s").disabled = true;
+          @endif
+        break;
+        case 6:
+          @if($u->sat)
+          document.getElementById("booking_period_s").disabled = false;
+          document.getElementById("submitBtn_s").disabled = false;
+          @else
+          document.getElementById("booking_period_s").disabled = true;
+          document.getElementById("submitBtn_s").disabled = true;
+          @endif
+        break;
+        case 0:
+          @if($u->sun)
+          document.getElementById("booking_period_s").disabled = false;
+          document.getElementById("submitBtn_s").disabled = false;
+          @else
+          document.getElementById("booking_period_s").disabled = true;
+          document.getElementById("submitBtn_s").disabled = true;
+          @endif
+        break;
+        default:
+      }
+    }
+    @endforeach
+    var date = document.getElementById('booking_date_s').value;
+    var time = document.getElementById('booking_period_s').value;
+    switch (date+"/"+time) {
+      @foreach($booking_records as $r)
+      case "{{$r->booking_date}}/{{$r->booking_period}}":
+        if(therapist == {{$r->therapist_id}}){
+          sweetAlert("Oops...", "The Period Has Been Booked......", "error");
+          document.getElementById('booking_period_s').selectedIndex = document.getElementById('booking_period_s').selectedIndex+1;
+          change_period_s()
+        }
+      break;
+      @endforeach
+      default:
+    }
+  }
+  function change_period_m(){
+    var therapist = document.getElementById('therapist_id_m').value;
+    var date = new Date(document.getElementById('booking_date_m').value);
+    var weekday = date.getDay();
+    @foreach($user as $u)
+    if(therapist == {{ $u->id }}){
+      switch (weekday) {
+        case 1:
+          @if($u->mon)
+          document.getElementById("booking_period_m").disabled = false;
+          document.getElementById("submitBtn_m").disabled = false;
+          @else
+          document.getElementById("booking_period_m").disabled = true;
+          document.getElementById("submitBtn_m").disabled = true;
+          @endif
+        break;
+        case 2:
+          @if($u->tue)
+          document.getElementById("booking_period_m").disabled = false;
+          document.getElementById("submitBtn_m").disabled = false;
+          @else
+          document.getElementById("booking_period_m").disabled = true;
+          document.getElementById("submitBtn_m").disabled = true;
+          @endif
+        break;
+        case 3:
+          @if($u->wed)
+          document.getElementById("booking_period_m").disabled = false;
+          document.getElementById("submitBtn_m").disabled = false;
+          @else
+          document.getElementById("booking_period_m").disabled = true;
+          document.getElementById("submitBtn_m").disabled = true;
+          @endif
+        break;
+        case 4:
+          @if($u->thur)
+          document.getElementById("booking_period_m").disabled = false;
+          document.getElementById("submitBtn_m").disabled = false;
+          @else
+          document.getElementById("booking_period_m").disabled = true;
+          document.getElementById("submitBtn_m").disabled = true;
+          @endif
+        break;
+        case 5:
+          @if($u->fri)
+          document.getElementById("booking_period_m").disabled = false;
+          document.getElementById("submitBtn_m").disabled = false;
+          @else
+          document.getElementById("booking_period_m").disabled = true;
+          document.getElementById("submitBtn_m").disabled = true;
+          @endif
+        break;
+        case 6:
+          @if($u->sat)
+          document.getElementById("booking_period_m").disabled = false;
+          document.getElementById("submitBtn_m").disabled = false;
+          @else
+          document.getElementById("booking_period_m").disabled = true;
+          document.getElementById("submitBtn_m").disabled = true;
+          @endif
+        break;
+        case 0:
+          @if($u->sun)
+          document.getElementById("booking_period_m").disabled = false;
+          document.getElementById("submitBtn_m").disabled = false;
+          @else
+          document.getElementById("booking_period_m").disabled = true;
+          document.getElementById("submitBtn_m").disabled = true;
+          @endif
+        break;
+        default:
+      }
+    }
+    @endforeach
+    var date = document.getElementById('booking_date_m').value;
+    var time = document.getElementById('booking_period_m').value;
+    switch (date+"/"+time) {
+      @foreach($booking_records as $r)
+      case "{{$r->booking_date}}/{{$r->booking_period}}":
+        if(therapist == {{$r->therapist_id}}){
+          sweetAlert("Oops...", "The Period Has Been Booked......", "error");
+          document.getElementById('booking_period_m').selectedIndex = document.getElementById('booking_period_m').selectedIndex+1;
+          change_period_m();
+        }
+      break;
+      @endforeach
+      default:
+    }
+  }
   </script>
 </body>
 </html>
