@@ -24,13 +24,7 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        $booking_records = DB::table('booking_records')->where('booking_date','>=',date('Y-m-d'))->get();
-        $user = User::where('employee','=',true)->get();
-        return view('index')->with('user',$user)->with('booking_records',$booking_records);
-    }
-
+    
     public function home(){
 
         $user = User::get();

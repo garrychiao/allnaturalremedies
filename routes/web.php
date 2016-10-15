@@ -12,7 +12,7 @@
 */
 
 
-Route::get('/', 'HomeController@index');
+Route::get('/', 'IndexController@index');
 
 Route::get('/errors/{type}', 'ErrorController@index');
 
