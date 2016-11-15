@@ -15,8 +15,6 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" rel="stylesheet">
     <link rel='stylesheet' href='css/fullcalendar.css' />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
-
-
     <!-- Scripts -->
     <script>
         window.Laravel = <?php echo json_encode([
@@ -359,7 +357,6 @@
               @empty
 
               @endforelse
-
           ],
           defaultTimedEventDuration: '01:00:00',
           eventClick: function(calEvent, jsEvent, view) {

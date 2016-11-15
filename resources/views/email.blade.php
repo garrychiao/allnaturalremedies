@@ -43,11 +43,11 @@
             }
 
             .content {
-                text-align: center;
+                text-align: left;
             }
 
             .title {
-                font-size: 36px;
+                font-size: 24px;
             }
 
             .links > a {
@@ -69,7 +69,10 @@
         <div class="flex-center position-ref full-height">
             <div class="content">
                 <div class="title m-b-md">
-                    Booking Completed !
+                  Name : {{ $request->name }}<br>
+                  Email : {{ $request->email }}<br>
+                  <br>
+                  Symptoms : {{ $request->symptoms }}
                 </div>
             </div>
         </div>

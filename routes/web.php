@@ -14,6 +14,10 @@
 
 Route::get('/', 'IndexController@index');
 
+Route::get('/mews', 'IndexController@mews');
+
+Route::post('/booking', 'IndexController@booking');
+
 Route::get('/errors/{type}', 'ErrorController@index');
 
 Auth::routes();
@@ -27,7 +31,5 @@ Route::group(['middleware' => ['web','permission']], function () {
   Route::post('/user/delete', 'HomeController@deleteUser');
 
   Route::post('/user/update', 'HomeController@updateUser');
-
-  Route::post('/booking', 'HomeController@booking');
 
 });
