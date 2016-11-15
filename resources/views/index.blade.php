@@ -203,7 +203,7 @@
           <h2 id="title">Therapies Provided:</h2>
           <div class="col-xs-12">
             <div class="col-xs-12" style="background-color:#EEF392">
-              <li><h4 id="content">Acupuncture</h4></li>
+              <li><h3 id="content">Acupuncture</h3></li>
               <div class="col-xs-4">
                 <a href="#" class="thumbnail">
                   <img src="img/img_acupuncture.jpeg" alt="...">
@@ -240,7 +240,7 @@
       <div class="slide visible-xs">
         <!--a part ends here-->
         <div class="col-xs-12" style="background-color:#44FA3B">
-          <li><h4 id="content">​Nutrition & Herbal</h4></li>
+          <li><h3 id="content">​Nutrition & Herbal</h3></li>
           <div class="col-xs-4">
             <a href="#" class="thumbnail">
               <img src="img/img_herbal.jpg" alt="...">
