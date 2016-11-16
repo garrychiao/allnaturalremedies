@@ -72,7 +72,7 @@
                   Name : {{ $request->name }}<br>
                   Email : {{ $request->email }}<br>
                   <br>
-                  Symptoms : {{ $request->symptoms }}
+                  Message : {{ $request->symptoms }}
                 </div>
             </div>
         </div>

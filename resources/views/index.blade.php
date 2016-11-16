@@ -106,6 +106,15 @@
             <h3>Sat - Sun: 09:00 AM - 09:00 PM</h3>
           </div>
         </div>
+        <div id="fb-root"></div>
+        <script>(function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v2.8&appId=852778774844915";
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+        <div class="fb-like" data-href="http://www.allnaturalremedies.nz/" data-width="100" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
       </div>
       <div class="visible-xs">
         <h2 class="animated pulse" id="title">Acupuncture & Massage Clinic Plus</h2>
@@ -122,6 +131,7 @@
             <h4>Mon - Fri: 08:00 AM - 10:00 PM</h4>
             <h4>Sat - Sun: 09:00 AM - 09:00 PM</h4>
           </div>
+          <div class="fb-like" data-href="http://www.allnaturalremedies.nz/" data-width="100" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
         </div>
       </div>
     </div>
@@ -289,7 +299,34 @@
                 Airport Oaks.
                 Auckland
               </h4>
-              <iframe width="500" height="300" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=place_id:EjgzMi8yMDMgS2lya2JyaWRlIFJkLCBNYW5nZXJlLCBBdWNrbGFuZCAyMDIyLCBOZXcgWmVhbGFuZA&key=AIzaSyAFpllDDTKOIMHw7vJrebtQKbPifQ5pAxY" allowfullscreen></iframe>
+              <iframe width="400" height="220" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=place_id:EjgzMi8yMDMgS2lya2JyaWRlIFJkLCBNYW5nZXJlLCBBdWNrbGFuZCAyMDIyLCBOZXcgWmVhbGFuZA&key=AIzaSyAFpllDDTKOIMHw7vJrebtQKbPifQ5pAxY" allowfullscreen></iframe>
+            </div>
+            <div class="col-sm-12">
+              <h4 id="content">We accept the following payment methods:</h4>
+              <div class="col-sm-3 col-sm-offset-1">
+                <div class="col-sm-8 col-sm-offset-2">
+                  <a href="#" class="thumbnail">
+                    <img src="{{url('img/paypal.png')}}" alt="...">
+                  </a>
+                  <h5>PayPal</h5>
+                </div>
+              </div>
+              <div class="col-sm-3">
+                <div class="col-sm-8 col-sm-offset-2">
+                  <a href="#" class="thumbnail">
+                    <img src="{{url('img/cash.png')}}" alt="...">
+                  </a>
+                  <h5>Cash</h5>
+                </div>
+              </div>
+              <div class="col-sm-3">
+                <div class="col-sm-8 col-sm-offset-2">
+                  <a href="#" class="thumbnail">
+                    <img src="{{url('img/no-cc.png')}}" alt="...">
+                  </a>
+                  <h5>No Credit Card</h5>
+                </div>
+              </div>
             </div>
           </div>
           <div class="col-sm-6">
@@ -332,7 +369,7 @@
           <div class="tab-content">
             <div role="tabpanel" class="tab-pane @if(count($errors) == 0) active fade in @else fade @endif " id="basic">
               <div class="col-sm-6 col-xs-12" align="center" style="background-color:#F8F1E9">
-                <div class="col-sm-12">
+                <div class="col-xs-12">
                   <h4 id="content"><span class="glyphicon glyphicon-phone-alt" aria-hidden="true"></span>Tel. 2755517.</h4>
                   <h4 id="content"><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>Mob. 02040360833, 0284078617.</h4>
                   <h4 id="content">
@@ -342,13 +379,40 @@
                     </a>
                   </h4>
                 </div>
-                <div class="col-sm-12">
+                <div class="col-xs-12">
                   <h4 id="content"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span>
                     32/203 Kirkbride Road.
                     Airport Oaks.
                     Auckland
                   </h4>
-                  <iframe width="300" height="200" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=place_id:EjgzMi8yMDMgS2lya2JyaWRlIFJkLCBNYW5nZXJlLCBBdWNrbGFuZCAyMDIyLCBOZXcgWmVhbGFuZA&key=AIzaSyAFpllDDTKOIMHw7vJrebtQKbPifQ5pAxY" allowfullscreen></iframe>
+                  <iframe width="300" height="150" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=place_id:EjgzMi8yMDMgS2lya2JyaWRlIFJkLCBNYW5nZXJlLCBBdWNrbGFuZCAyMDIyLCBOZXcgWmVhbGFuZA&key=AIzaSyAFpllDDTKOIMHw7vJrebtQKbPifQ5pAxY" allowfullscreen></iframe>
+                </div>
+                <div class="col-xs-12">
+                  <h4 id="content">We accept the following payment methods:</h4>
+                  <div class="col-xs-4">
+                    <div class="col-xs-12">
+                      <a href="#" class="thumbnail">
+                        <img src="{{url('img/paypal.png')}}" alt="...">
+                      </a>
+                      <h5>PayPal</h5>
+                    </div>
+                  </div>
+                  <div class="col-xs-4">
+                    <div class="col-xs-12">
+                      <a href="#" class="thumbnail">
+                        <img src="{{url('img/cash.png')}}" alt="...">
+                      </a>
+                      <h5>Cash</h5>
+                    </div>
+                  </div>
+                  <div class="col-xs-4">
+                    <div class="col-xs-12">
+                      <a href="#" class="thumbnail">
+                        <img src="{{url('img/no-cc.png')}}" alt="...">
+                      </a>
+                      <h5>No Credit Card</h5>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
