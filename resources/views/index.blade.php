@@ -115,7 +115,7 @@
           fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));</script>
         <div class="col-sm-12">
-          <div class="fb-like" data-href="http://www.allnaturalremedies.nz/" data-width="100" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+          <div class="fb-like" data-href="http://www.allnaturalremedies.nz/" data-width="100" data-layout="standard" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
         </div>
       </div>
       <div class="visible-xs">
@@ -134,7 +134,7 @@
             <h4>Sat - Sun: 09:00 AM - 09:00 PM</h4>
           </div>
           <div class="col-xs-12">
-            <div class="fb-like" data-href="http://www.allnaturalremedies.nz/" data-width="100" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+            <div class="fb-like" data-href="http://www.allnaturalremedies.nz/" data-width="100" data-layout="standard" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
           </div>
         </div>
       </div>
