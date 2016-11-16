@@ -114,7 +114,9 @@
           js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v2.8&appId=852778774844915";
           fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));</script>
-        <div class="fb-like" data-href="http://www.allnaturalremedies.nz/" data-width="100" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+        <div class="col-sm-12">
+          <div class="fb-like" data-href="http://www.allnaturalremedies.nz/" data-width="100" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+        </div>
       </div>
       <div class="visible-xs">
         <h2 class="animated pulse" id="title">Acupuncture & Massage Clinic Plus</h2>
@@ -131,7 +133,9 @@
             <h4>Mon - Fri: 08:00 AM - 10:00 PM</h4>
             <h4>Sat - Sun: 09:00 AM - 09:00 PM</h4>
           </div>
-          <div class="fb-like" data-href="http://www.allnaturalremedies.nz/" data-width="100" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+          <div class="col-xs-12">
+            <div class="fb-like" data-href="http://www.allnaturalremedies.nz/" data-width="100" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+          </div>
         </div>
       </div>
     </div>
