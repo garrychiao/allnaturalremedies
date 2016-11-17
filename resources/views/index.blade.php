@@ -152,7 +152,7 @@
                     <li><h3 id="content">Acupuncture</h3></li>
                     <div class="col-sm-4">
                       <a href="#" class="thumbnail">
-                        <img src="img/img_acupuncture.jpeg" alt="...">
+                        <img src="img/img_acupuncture.png" alt="...">
                       </a>
                     </div>
                     <div class="col-sm-8">
@@ -220,7 +220,7 @@
               <li><h3 id="content">Acupuncture</h3></li>
               <div class="col-xs-4">
                 <a href="#" class="thumbnail">
-                  <img src="img/img_acupuncture.jpeg" alt="...">
+                  <img src="img/img_acupuncture.png" alt="...">
                 </a>
               </div>
               <div class="col-xs-8">
