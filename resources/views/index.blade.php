@@ -51,11 +51,11 @@
     background-repeat: no-repeat !important;
   }
   #title{
-    /*font-family: cursive;*/
+    font-family: serif;;
     color: #F54533;
   }
   #content{
-    /*font-family: cursive;*/
+    font-family: serif;
     color: #000;
     padding-bottom: 20px;
   }
@@ -143,7 +143,9 @@
       <!--2*2 per slide-->
       <div class="slide">
         <div class="col-sm-12 hidden-xs">
-          <h1 id="title">Therapies Provided:</h1>
+          <div class="col-sm-12" align="center">
+            <h1 id="title">Therapies Provided:</h1>
+          </div>
           <div class="col-sm-10 col-sm-offset-1">
             <table>
               <tr>
@@ -214,7 +216,9 @@
           </div>
         </div>
         <div class="visible-xs">
-          <h2 id="title">Therapies Provided:</h2>
+          <div class="col-xs-12" align="center">
+            <h2 id="title">Therapies Provided:</h2>
+          </div>
           <div class="col-xs-12">
             <div class="col-xs-12" style="background-color:#EEF392">
               <li><h3 id="content">Acupuncture</h3></li>
