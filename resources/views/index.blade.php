@@ -51,11 +51,11 @@
     background-repeat: no-repeat !important;
   }
   #title{
-    font-family: cursive;
+    /*font-family: cursive;*/
     color: #F54533;
   }
   #content{
-    font-family: cursive;
+    /*font-family: cursive;*/
     color: #000;
     padding-bottom: 20px;
   }
@@ -139,7 +139,7 @@
         </div>
       </div>
     </div>
-    <div class="section" id="csstherapies" align="center">
+    <div class="section" id="csstherapies">
       <!--2*2 per slide-->
       <div class="slide">
         <div class="col-sm-12 hidden-xs">
@@ -147,8 +147,8 @@
           <div class="col-sm-10 col-sm-offset-1">
             <table>
               <tr>
-                <td>
-                  <div class="col-sm-12" style="background-color:#EEF392"><!--yellow-->
+                <td style="background-color:#EEF392">
+                  <div class="col-sm-12"><!--yellow-->
                     <li><h3 id="content">Acupuncture</h3></li>
                     <div class="col-sm-4">
                       <a href="#" class="thumbnail">
@@ -162,8 +162,8 @@
                     </div>
                   </div>
                 </td>
-                <td>
-                  <div class="col-sm-12" style="background-color:#F2AFAC"><!--Red-->
+                <td style="background-color:#F2AFAC">
+                  <div class="col-sm-12"><!--Red-->
                     <li><h3 id="content">Massage</h3></li>
                     <div class="col-sm-4">
                       <a href="#" class="thumbnail">
@@ -179,8 +179,8 @@
                 </td>
               </tr>
               <tr>
-                <td>
-                  <div class="col-sm-12" style="background-color:#44FA3B"><!--green-->
+                <td style="background-color:#44FA3B">
+                  <div class="col-sm-12"><!--green-->
                     <li><h3 id="content">​Nutrition & Herbal</h3></li>
                     <div class="col-sm-4">
                       <a href="#" class="thumbnail">
@@ -194,8 +194,8 @@
                     </div>
                   </div>
                 </td>
-                <td>
-                  <div class="col-sm-12" style="background-color:#ACD5F2"><!--Blue-->
+                <td style="background-color:#ACD5F2">
+                  <div class="col-sm-12"><!--Blue-->
                     <li><h3 id="content">​Reflexology</h3></li>
                     <div class="col-sm-4">
                       <a href="#" class="thumbnail">
@@ -204,7 +204,7 @@
                     </div>
                     <div class="col-sm-8">
                       <p>
-                        Please book in advance and  try our latest massages too.
+                        Reflexologists posit that the blockage of an energy field, invisible life force, or Qi, can prevent healing. Another tenet of reflexology is the belief that practitioners can relieve stress and pain in other parts of the body through the manipulation of the feet.
                       </p>
                     </div>
                   </div>
@@ -229,7 +229,7 @@
                 </p>
               </div>
             </div>
-            <div class="col-xs-12">
+            <div class="col-xs-12" align="center">
               <h4><----Slide to View----></h4>
             </div>
           </div>
@@ -262,7 +262,7 @@
           </div>
           <div class="col-xs-8">
             <p>
-              We are the retailers of New Zealand mede nutrition powders and herbal suppliments.  Herbal suppliments are without side effects- all trusted brands at a very low price.
+              We are the retailers of New Zealand mede nutrition powders and herbal suppliments.<br>  Herbal suppliments are without side effects- all trusted brands at a very low price.<br><br><br>
             </p>
           </div>
         </div>
@@ -277,7 +277,7 @@
           </div>
           <div class="col-xs-8">
             <p>
-              Please book in advance and  try our latest massages too.
+              Reflexologists posit that the blockage of an energy field, invisible life force, or Qi, can prevent healing.<br> Another tenet of reflexology is the belief that practitioners can relieve stress and pain in other parts of the body through the manipulation of the feet.
             </p>
           </div>
         </div>
